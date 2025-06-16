@@ -1,32 +1,19 @@
 <?php
 class PaseoDAO {
-    private $conexion;
-    public $idPaseo;
-    public $Inicio;
-    public $Duracion;
-    public $Cita_idCita;
+    private $id;
+    private $inicio;
+    private $duracion;
+    private $idCita;
 
-    public function __construct($conexion) {
-        $this->conexion = $conexion;
+    public function __construct($id = "", $inicio = "", $duracion = "", $idCita = "") {
+        $this->id = $id;
+        $this->inicio = $inicio;
+        $this->duracion = $duracion;
+        $this->idCita = $idCita;
     }
 
-    public function insertar() {
-        $sql = "INSERT INTO Paseo (idPaseo, Inicio, Duracion, Cita_idCita)
-                VALUES (?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($sql);
-        return $stmt->execute([
-            $this->idPaseo, $this->Inicio, $this->Duracion, $this->Cita_idCita
-        ]);
-    }
-
-    public function obtenerPorId($id) {
-        $stmt = $this->conexion->prepare("SELECT * FROM Paseo WHERE idPaseo = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function obtenerTodos() {
-        return $this->conexion->query("SELECT * FROM Paseo")->fetchAll(PDO::FETCH_ASSOC);
+    public function Consultar() {
+        return "SELECT * FROM Paseo";
     }
 }
 ?>

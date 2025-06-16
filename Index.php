@@ -3,6 +3,13 @@ session_start();
 require ("Logica/Administrador.php");
 require ("Logica/Dueño.php");
 require ("Logica/paseador.php");
+require ("Logica/EstadoPaseador.php");
+require ("Logica/EstadoCita.php");
+require ("Logica/Raza.php");
+require ("Logica/Perro.php");
+require ("Logica/Tarifa.php");
+require ("Logica/Cita.php");
+require ("Logica/Paseo.php");
 
 
 ?>

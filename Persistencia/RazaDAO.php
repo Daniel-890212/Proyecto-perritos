@@ -4,8 +4,9 @@ class RazaDAO {
     public $idRaza;
     public $Nombre;
 
-    public function __construct($conexion) {
-        $this->conexion = $conexion;
+  public function __construct($id="",$Nombre=""){
+            $this->Id=$id;
+            $this->Nombre=$Nombre;            
     }
 
     public function insertar() {
@@ -20,8 +21,9 @@ class RazaDAO {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function obtenerTodos() {
-        return $this->conexion->query("SELECT * FROM Raza")->fetchAll(PDO::FETCH_ASSOC);
+    public function Consultar() {
+        return "SELECT * FROM Raza";
     }
+    
 }
 ?>
