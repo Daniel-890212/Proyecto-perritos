@@ -22,15 +22,15 @@
 			<p class="text-dark opacity-75">Parrafo de informacion</p>
 		</div>
 
-		<div class="row row-cols-1 row-cols-md-3 g-4"><h1>contenedor de cartas</h1>
+		<div class="row row-cols-1 row-cols-md-3 g-4">
 
 			<div class="col">
 				<div class="card h-100 text-center">
 					<div class="card-body">
 						<h5 class="card-title">
-							<i class="fas fa-check-circle text-success me-2"></i> cartas de estilos	</h5>
+							<i class="fas fa-check-circle text-success me-2"></i> Soy un Dueño	</h5>
 						<p class="card-text"></p>
-						<a href="#" class="btn btn-primary">boton de links</a>
+						<a href="?pid=<?php echo base64_encode("presentacion/RegistraDueño.php") ?>" class="btn btn-primary">Registrarse</a>
 					</div>
 				</div>
 			</div>

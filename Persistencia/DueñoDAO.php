@@ -15,13 +15,15 @@ class DueñoDAO {
     }
 
     public function insertar() {
-        return "INSERT INTO Dueño (Nombre, Apellido, Correo, Clave) VALUES ($this->Nombre, $this->Apellido, $this->Correo,$this->Clave)";
+        return "INSERT INTO Dueño (Nombre, Apellido, Correo, Clave) VALUES ('$this->Nombre', '$this->Apellido', '$this->Correo','$this->Clave')";
     }
 
-    public function obtenerPorId($id) {
-        return "SELECT * FROM Dueño WHERE idDueño = ?";
+    public function autenticar(){
+        return "select idDueño
+                from Dueño
+                where correo = '" . $this -> Correo . "' and clave = '" . md5($this -> Clave) . "'";
     }
-
+    
     public function Consultar() {
         return "SELECT * FROM Dueño";
     }

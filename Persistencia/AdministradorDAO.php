@@ -14,13 +14,19 @@ class AdministradorDAO {
         $this->Clave=$Clave;
     }
 
-    public function insertar() {
-        return "INSERT INTO Administradores (Nombre, Apellido, Correo, Clave) VALUES ($this->Nombre, $this->Apellido, $this->Correo,$this->Clave)";
+   public function consultarPorEspecialidad($idEspecialidad){
+        return "select *
+                from Medico 
+                where Especialidad_idEspecialidad = $idEspecialidad
+                order by apellido asc";
     }
-
-    public function obtenerPorId($id) {
-        return "SELECT * FROM Administradores WHERE idAdministradores = ?";
+    
+    public function autenticar(){
+        return "select idAdministradores
+                from Administradores
+                where correo = '" . $this -> Correo . "' and clave = '" . md5($this -> Clave) . "'";
     }
+    
 
     public function Consultar() {
         return "SELECT * FROM Administradores";

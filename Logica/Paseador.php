@@ -16,20 +16,20 @@ require_once("Persistencia/Conexion.php");
     public function getEstado(){
         return $this->Estado;
     }
-    //     public function autenticar(){
-    //     $conexion = new Conexion();
-    //     $medicoDAO = new MedicoDAO("","","", $this -> correo, $this -> clave);
-    //     $conexion -> abrir();
-    //     $conexion -> ejecutar($medicoDAO -> autenticar());
-    //     if($conexion -> filas() == 1){
-    //         $this -> id = $conexion -> registro()[0];
-    //         $conexion->cerrar();
-    //         return true;
-    //     }else{
-    //         $conexion->cerrar();
-    //         return false;
-    //     }
-    // }
+        public function autenticar(){
+        $conexion = new Conexion();
+        $PaseadorDAO = new PaseadorDAO("","","", $this -> Correo, $this -> Clave);
+        $conexion -> abrir();
+        $conexion -> ejecutar($PaseadorDAO -> autenticar());
+        if($conexion -> filas() == 1){
+            $this -> id = $conexion -> registro()[0];
+            $conexion->cerrar();
+            return true;
+        }else{
+            $conexion->cerrar();
+            return false;
+        }
+    }
     
     public function consultar(){
         $conexion = new Conexion();

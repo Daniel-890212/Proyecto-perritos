@@ -7,20 +7,20 @@ require_once("Persistencia/Conexion.php");
         public function __construct($id="",$Nombre="",$apellido="",$Correo="",$Clave=""){
             parent::__construct($id,$Nombre,$apellido,$Correo,$Clave);
     }
-    //     public function autenticar(){
-    //     $conexion = new Conexion();
-    //     $medicoDAO = new MedicoDAO("","","", $this -> correo, $this -> clave);
-    //     $conexion -> abrir();
-    //     $conexion -> ejecutar($medicoDAO -> autenticar());
-    //     if($conexion -> filas() == 1){
-    //         $this -> id = $conexion -> registro()[0];
-    //         $conexion->cerrar();
-    //         return true;
-    //     }else{
-    //         $conexion->cerrar();
-    //         return false;
-    //     }
-    // }
+        public function autenticar(){
+        $conexion = new Conexion();
+        $DueñoDAO = new DueñoDAO("","","", $this -> Correo, $this -> Clave);
+        $conexion -> abrir();
+        $conexion -> ejecutar($DueñoDAO -> autenticar());
+        if($conexion -> filas() == 1){
+            $this -> id = $conexion -> registro()[0];
+            $conexion->cerrar();
+            return true;
+        }else{
+            $conexion->cerrar();
+            return false;
+        }
+    }
     
     public function consultar(){
         $conexion = new Conexion();
@@ -34,6 +34,14 @@ require_once("Persistencia/Conexion.php");
         }
         $conexion->cerrar();
         return $Dueños;
+    }
+     public function Insertar($Nombre="", $apellido="", $clave="", $correo=""){
+        $conexion = new Conexion();
+        $DueñoDAO = new DueñoDAO(0,$Nombre, $apellido, $correo,$clave);
+        $conexion -> abrir();
+        echo $DueñoDAO-> insertar() ;
+        $conexion -> ejecutar($DueñoDAO-> insertar());
+        $conexion->cerrar();
     }
  }
 

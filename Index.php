@@ -35,12 +35,13 @@ $paginas_sin_autenticacion = array(
     "presentacion/inicio.php",
     "presentacion/autenticar.php",
     "presentacion/noAutorizado.php",
+    "presentacion/RegistraDueño.php",
 );
 
 $paginas_con_autenticacion = array(
-    "presentacion/sesionAdmin.php",
-    "presentacion/sesionMedico.php",
-    "presentacion/sesionPaciente.php",
+    "Presentacion/sesionAdmin.php",
+    "Presentacion/sesionPaseador.php",
+    "Presentacion/sesionDueño.php",
     "presentacion/cita/consultarCita.php",
     "presentacion/paciente/buscarPaciente.php",
 );

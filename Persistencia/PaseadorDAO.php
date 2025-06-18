@@ -17,14 +17,12 @@ class PaseadorDAO {
         $this->EstadoPaseador_idEstadoPaseador=$EstadoPaseador_idEstadoPaseador;
     }
 
-    public function insertar() {
-        return "INSERT INTO Administradores (Nombre, Apellido, Correo, Clave) VALUES ($this->Nombre, $this->Apellido, $this->Correo,$this->Clave)";
+public function autenticar(){
+        return "select idPaseador
+                from Paseador
+                where correo = '" . $this -> Correo . "' and clave = '" . md5($this -> Clave) . "'";
     }
-
-    public function obtenerPorId($id) {
-        return "SELECT * FROM Administradores WHERE idAdministradores = ?";
-    }
-
+    
     public function Consultar() {
         return "SELECT * FROM Paseador";
     }

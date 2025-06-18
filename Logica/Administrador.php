@@ -7,20 +7,20 @@ require_once("Persistencia/Conexion.php");
         public function __construct($id="",$Nombre="",$apellido="",$Correo="",$Clave=""){
             parent::__construct($id,$Nombre,$apellido,$Correo,$Clave);
     }
-    //     public function autenticar(){
-    //     $conexion = new Conexion();
-    //     $medicoDAO = new MedicoDAO("","","", $this -> correo, $this -> clave);
-    //     $conexion -> abrir();
-    //     $conexion -> ejecutar($medicoDAO -> autenticar());
-    //     if($conexion -> filas() == 1){
-    //         $this -> id = $conexion -> registro()[0];
-    //         $conexion->cerrar();
-    //         return true;
-    //     }else{
-    //         $conexion->cerrar();
-    //         return false;
-    //     }
-    // }
+        public function autenticar(){
+        $conexion = new Conexion();
+        $AdministradorDAO = new AdministradorDAO("","","", $this -> Correo, $this -> Clave);
+        $conexion -> abrir();
+        $conexion -> ejecutar($AdministradorDAO -> autenticar());
+        if($conexion -> filas() == 1){
+            $this -> id = $conexion -> registro()[0];
+            $conexion->cerrar();
+            return true;
+        }else{
+            $conexion->cerrar();
+            return false;
+        }
+    }
     
     public function consultar(){
         $conexion = new Conexion();
